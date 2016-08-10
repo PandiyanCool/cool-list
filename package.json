@@ -1,7 +1,9 @@
 {
   "name": "toDo",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "firebase": "^3.2.1"
+  },
   "scripts": {
     "test": "gulp test"
   },
