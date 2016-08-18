@@ -6,18 +6,38 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr, $scope, $firebaseObject) {
+  function MainController($timeout, webDevTec, toastr, $scope, $firebaseObject, $firebaseAuth, $mdSidenav) {
     var vm = this;
 
-    // var ref = firebase.database().ref();
+    var config = {
+      apiKey: "AIzaSyBSiqipUqwijvCtWF_aahOEo-8onavV5tQ",
+      authDomain: "cool-list-3ccf6.firebaseapp.com",
+      databaseURL: "https://cool-list-3ccf6.firebaseio.com",
+      storageBucket: "cool-list-3ccf6.appspot.com",
+    };
+    var mainApp = firebase.initializeApp(config);
+    var rootRef = firebase.database().ref();
 
-    // vm.databaseInfo = $firebaseObject(ref);
-    // console.log(vm.databaseInfo);
+    var ref = firebase.database().ref();
+    var auth = $firebaseAuth();
+
+    //$scope.data = $firebaseObject(ref);
 
     vm.awesomeThings = [];
     vm.classAnimation = '';
     vm.creationDate = 1470402545723;
     vm.showToastr = showToastr;
+    vm.login = login;
+    vm.appUserName;
+    vm.isLoggedIn = false;
+
+    vm.toggleLeft = buildToggler('left');
+
+    function buildToggler(componentId){
+      return function(){
+        $mdSidenav(componentId).toggle();
+      }
+    }
 
     activate();
 
@@ -26,6 +46,16 @@
       $timeout(function () {
         vm.classAnimation = 'rubberBand';
       }, 4000);
+    }
+
+    function login() {
+      auth.$signInWithPopup("facebook").then(function (firebaseUser) {
+        console.log("Signed in as:", firebaseUser);
+        vm.appUserName = firebaseUser.user.displayName;
+        vm.isLoggedIn = true;
+      }).catch(function (error) {
+        console.log("Authentication failed:", error);
+      });
     }
 
     function showToastr() {

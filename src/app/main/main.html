@@ -3,6 +3,7 @@
   <md-content>
     <header>
       <acme-navbar creation-date="main.creationDate"></acme-navbar>
+      <todo-sidebar></todo-sidebar>
     </header>
 
     <section class="jumbotron">
@@ -12,6 +13,11 @@
         Always a pleasure scaffolding your apps.
       </p>
       <md-button class="md-raised animated infinite" ng-class="main.classAnimation" ng-click="main.showToastr()">Splendid Toastr</md-button>
+      <md-button class="md-raised md-warn" ng-hide="main.isLoggedIn" ng-click="main.login()">login with google</md-button>
+      <md-button ng-click="main.toggleLeft()" class="md-raised">
+        toggle sidebar
+      </md-button>
+      <p ng-hide="!main.isLoggedIn">Logged in as {{main.appUserName}}</p>
       <p>
         With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>
       </p>
