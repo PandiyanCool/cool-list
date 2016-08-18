@@ -44,6 +44,10 @@
   font-feature-settings: 'liga';
 }
 
+ .md-button {    
+    text-transform: capitalize !important;
+}
+
 html {
   font-family: 'PT Serif',Helvetica,Arial,sans-serif;
 }
