@@ -1,0 +1,22 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Launch index.html (without sourcemaps)",
+			"type": "chrome",
+			"request": "launch",
+			"url": "http://localhost:3000/",
+			"webRoot": "${workspaceRoot}/src",
+			"sourceMaps": true
+		},
+		{
+			"name": "node gulp.js",
+			"type": "node",
+			"program": "${workspaceRoot}/node_modules/gulp/bin/gulp.js",
+			"stopOnEntry": true,
+			"args": [],
+			"cwd": "${workspaceRoot}","runtimeExecutable": null,
+			"env": {}
+		}
+	]
+}
