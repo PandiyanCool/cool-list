@@ -22,7 +22,6 @@
         /** @ngInject */
         function SidebarController(moment) {
             var vm = this;
-            // "vm.creationDate" is available by directive option "bindToController: true"
             vm.sidebar = "Sidebar";
         }
     }
