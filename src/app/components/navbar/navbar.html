@@ -1,13 +1,19 @@
 <md-toolbar layout="row" layout-align="center center">
-
-  <md-button href="https://github.com/Swiip/generator-gulp-angular">Gulp Angular</md-button>
+<md-button class="md-icon-button" ng-click="vm.toggleLeft()"><md-icon md-font-set="material-icons"> menu </md-icon></md-button>
+  <md-button>DOCS</md-button>
 
   <section flex layout="row" layout-align="left center">
-    <md-button class="md-raised">Home</md-button>
-    <md-button class="md-raised">About</md-button>
-    <md-button class="md-raised">Contact</md-button>
+    <md-button>Home</md-button>
+    <md-button>About</md-button>
+    <md-button>Contact</md-button>
   </section>
 
-  <md-button class="acme-navbar-text">Application was created {{ vm.relativeDate }}.</md-button>
+<section layout-align="right">
+  <md-button class="md-raised md-warn" ng-hide="vm.isLoggedIn" ng-click="vm.login()">login with google</md-button>
+      <p ng-hide="!vm.isLoggedIn"><md-icon md-font-set="material-icons"> account_circle </md-icon> {{vm.appUserName}} </p>
+</section>
+
+
+  <!--<md-button class="acme-navbar-text">Application was created {{ vm.relativeDate }}.</md-button>-->
 
 </md-toolbar>
